@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>Spider</comment>
+<entry key="pageF">10</entry>
+<entry key="domain">bugzilla</entry>
+<entry key="threadNum">10</entry>
+<entry key="startPageIndex">1097738</entry>
+<entry key="endInPageIndex">1097750</entry>
+<entry key="isSpawnUrl">true</entry>
+<entry key="retryTimes">10</entry>
+<entry key="timeOut">30000</entry>
+<entry key="sleepTimeThread">3000</entry>
+<entry key="cycleRetryTimes">10</entry>
+<entry key="userAgent">Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)</entry>
+<entry key="sleepTimeSpider">60000</entry>
+</properties>

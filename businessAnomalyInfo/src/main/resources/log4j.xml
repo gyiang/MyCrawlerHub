@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <appender name="stdout" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="Threshold" value="ERROR" />
+            <param name="ConversionPattern" value="%d{yy-MM-dd HH:mm:ss,SSS} %-5p ## %m%n" />
+        </layout>
+    </appender>
+    <!--ERROR单独输出到一个文件-->
+    <appender name="file" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="./log/error.log" />
+        <param name="Threshold" value="ERROR" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yy-MM-dd HH:mm:ss,SSS} %-5p %c(%F:%L) ## %m%n" />
+        </layout>
+    </appender>
+    <!--WARN单独输出到一个文件-->
+    <appender name="file_log500" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="./log/warn.log" />
+        <param name="Threshold" value="WARN" />
+        <param name="MaxFileSize" value="10240KB"/>
+        <param name="MaxBackupIndex" value="1000"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yy-MM-dd HH:mm:ss,SSS} %-5p %c(%F:%L) ## %m%n" />
+        </layout>
+    </appender>
+    <appender name="file_log" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="./log/info.log" />
+        <param name="Threshold" value="INFO" />
+        <param name="MaxFileSize" value="20480KB"/>
+        <param name="MaxBackupIndex" value="1000"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yy-MM-dd HH:mm:ss} %-5p ## %m%n" />
+        </layout>
+    </appender>
+
+    <appender name="TestTestTest" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="./log/more.log" />
+        <param name="Threshold" value="INFO" />
+        <param name="MaxFileSize" value="20480KB"/>
+        <param name="MaxBackupIndex" value="1000"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yy-MM-dd HH:mm:ss} %-5p ## %m%n" />
+        </layout>
+    </appender>
+    <logger name="extProfile" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="TestTestTest" />
+    </logger>
+
+    <logger name="org.apache" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="stdout" />
+    </logger>
+
+    <root>
+        <level value="info" />
+        <appender-ref ref="stdout" />
+        <appender-ref ref="file" />
+        <appender-ref ref="file_log500"/>
+        <appender-ref ref="file_log" />
+        <appender-ref ref="TestTestTest"/>
+    </root>
+
+</log4j:configuration>
